@@ -1,0 +1,49 @@
+buildscript {
+	repositories {
+		jcenter()
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:2.1.6.RELEASE")
+	}
+}
+plugins {
+	id 'org.springframework.boot' version '2.1.7.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+	id 'java'
+}
+
+group = 'com.clevertec'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+	maven { url "https://maven.vaadin.com/vaadin-addons" }
+}
+
+dependencyManagement {
+	imports {
+		mavenBom 'com.vaadin:vaadin-bom:14.0.0'
+	}
+}
+
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	compile 'com.vaadin:vaadin-spring-boot-starter'
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	compile group: 'net.sf.jsefa', name: 'jsefa', version: '1.1.1.RELEASE'
+	// https://mvnrepository.com/artifact/org.apache.commons/commons-text
+	compile group: 'org.apache.commons', name: 'commons-text', version: '1.7'
+
+}

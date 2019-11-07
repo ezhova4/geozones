@@ -1,0 +1,15 @@
+server:
+  port: 8860
+spring:
+  security:
+    user:
+      name: ${USER_NAME}
+      password: ${USER_PASSWORD}
+  output:
+    ansi:
+      enabled: always
+vaadin:
+  compatibilityMode: true
+
+wialon:
+  token: 46c2ddfacbbf8794148298b57ba68a93E15497193646AE4F0C0FBA5828B8FEAD7F630938
